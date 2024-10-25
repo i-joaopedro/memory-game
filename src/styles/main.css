@@ -1,0 +1,93 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #FFCC00;
+    user-select: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    gap: 1.9rem;
+    background-color: #DA291C;
+    padding: 2.5rem 3.75rem;
+}
+
+h2 {
+    font-size: 3em;
+    color: #FFF;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.reset {
+    padding: 0.9rem 1.25rem;
+    width: 100%;
+    color: #000;
+    background-color: #FFF;
+    border: none;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.reset:focus {
+    color: #FFF;
+    background-color: #FFCC00;
+}
+
+.game {
+    width: 430px;
+    height: 430px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    align-items: center;
+    justify-content: center;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFF;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    font-size: 3em;
+    transform: rotateY(180deg);
+    transition: 0.25s;
+}
+
+.item::after {
+    position: absolute;
+    inset: 0;
+    content: "local_dining"; /* Nome do ícone */
+    font-family: 'Material Icons';
+    color: #DA291C;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    background-color: #FFCC00;
+    transition: 0.25s;
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+}
+
+.item.boxOpen {
+    transform: rotateY(0deg);  
+}
+
+.boxOpen::after,
+.boxMatch::after {
+    transform: rotateY(180deg);
+}
