@@ -41,7 +41,23 @@ function checkMath() {
     }
     openCards = [];
 
-    if(document.querySelectorAll(".boxMatch").length === emojis.length) {
-        alert("Você venceu !!")
+    if (document.querySelectorAll(".boxMatch").length === emojis.length) {
+        showModal();
     }
 }
+
+function showModal() {
+    const modal = document.getElementById("vitoriaModal");
+    modal.style.display = "block";
+}
+
+document.getElementById("fecharModal").onclick = function() {
+    document.getElementById("vitoriaModal").style.display = "none";
+};
+
+window.onclick = function(event) {
+    const modal = document.getElementById("vitoriaModal");
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+};
